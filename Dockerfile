@@ -14,6 +14,8 @@ RUN python3 -m venv /opt/director && /opt/director/bin/pip install --no-cache-di
 COPY api api
 COPY --from=frontend /build/web web
 COPY deploy/start.sh /usr/local/bin/start-director
-ENV DATA_DIR=/app/.data COOKIE_SECURE=1 NEXT_TELEMETRY_DISABLED=1
+RUN mkdir -p /app/.data && chown -R 1000:1000 /app
+ENV DATA_DIR=/app/.data COOKIE_SECURE=1 NEXT_TELEMETRY_DISABLED=1 VISION_PROVIDER=gemini
+USER 1000:1000
 ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 CMD ["bash", "/usr/local/bin/start-director"]

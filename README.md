@@ -1,3 +1,12 @@
+---
+title: Visual Director AI
+emoji: 🎬
+colorFrom: purple
+colorTo: gray
+sdk: docker
+app_port: 3000
+---
+
 # Visual Director AI
 
 Phase 1 is a Next.js and Tailwind workspace backed by FastAPI. It accepts an advertising reference, runs a structured vision audit and turns three proposed creative treatments into production prompts.
