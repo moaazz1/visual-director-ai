@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: visual-director-ai
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/config
+    envVars:
+      - key: VISION_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false
