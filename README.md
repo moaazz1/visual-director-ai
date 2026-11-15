@@ -1,12 +1,3 @@
----
-title: Visual Director AI
-emoji: 🎬
-colorFrom: purple
-colorTo: gray
-sdk: docker
-app_port: 3000
----
-
 # Visual Director AI
 
 Phase 1 is a Next.js and Tailwind workspace backed by FastAPI. It accepts an advertising reference, runs a structured vision audit and turns three proposed creative treatments into production prompts.
@@ -76,3 +67,7 @@ Phase 2 will add reference-guided image editing, localized masks where supported
 ## Render Free
 
 Deploy this repository as one **Web Service** using **Docker** on the **Free** instance type. A Blueprint can use the included `render.yaml`. For manual setup, leave the root directory blank and set `VISION_PROVIDER=gemini`. Enter `GEMINI_API_KEY` in Render's Environment settings. Leave billing disabled on the Google AI project for free-tier-only use. You can override the Gemini model with `VISION_MODEL`. Hosted local storage is temporary on this plan. The current audit endpoint is intended for trusted evaluations, so keep the key unset on a publicly shared demo.
+
+## Northflank Sandbox
+
+Create a combined service from the main branch, choose Dockerfile, and expose HTTP port 3000 publicly. Use the Sandbox plan. Set GEMINI_API_KEY as a runtime secret when ready to enable live audits, and leave Google billing disabled for free-tier-only use. Local uploads and audits are temporary on a container filesystem.

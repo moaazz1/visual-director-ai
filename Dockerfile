@@ -17,5 +17,6 @@ COPY deploy/start.sh /usr/local/bin/start-director
 RUN mkdir -p /app/.data && chown -R 1000:1000 /app
 ENV DATA_DIR=/app/.data COOKIE_SECURE=1 NEXT_TELEMETRY_DISABLED=1 VISION_PROVIDER=gemini
 USER 1000:1000
+EXPOSE 3000
 ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 CMD ["bash", "/usr/local/bin/start-director"]
